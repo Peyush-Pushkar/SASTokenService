@@ -1,0 +1,72 @@
+﻿<div ng-app="sasTokenApp">
+    <div ng-hide="isDeleteSucess || isDeviceSavedSucess">
+
+        <form name="editdeviceform" novalidate>
+            <h3>Device Detail</h3>
+            <p>
+                Device Id :<br />
+                <input class="form-control" type="text" name="devicename" ng-model="selectedDevice.DeviceID" readonly />
+
+            </p>
+            <p>
+                Device Name :<br />
+                <input type="text" class="form-control" name="devicename" ng-model="selectedDevice.Name">
+
+            </p>
+            <p>
+                Key :<br />
+                <input type="text" class="form-control" name="Owner" ng-model="selectedDevice.DeviceKey">
+
+            </p>
+            <p>
+                Key Validity:<br />
+                <input type="text" class="form-control" name="Owner" ng-model="selectedDevice.KeyValidity">
+
+            </p>
+            <p>
+                Owner :<br />
+                <input type="text" class="form-control" name="Owner" ng-model="selectedDevice.Owner">
+
+            </p>
+
+            <p>
+                IP :<br />
+                <input type="text" class="form-control" name="ip" ng-model="selectedDevice.IP" r>
+
+            </p>
+
+            <p>
+                Location :<br />
+                <input type="text" class="form-control" name="location" ng-model="selectedDevice.GeoPosition" >
+
+            </p>
+
+            <p>
+                <input type="submit" class="btn btn-primary" value="Save" ng-click="saveDevice()">
+                <input type="submit" class="btn btn-danger" value="Delete" ng-click="deleteDevice(selectedDevice.DeviceID)">
+            </p>
+            <p>
+
+            </p>
+            <div align="center">
+                <a href="#/Devices"> <input class="btn btn-default" type="button" value="Back" /></a>
+            </div>
+
+        </form>
+    </div>
+
+    <div ng-show="isDeleteSucess">
+        <h3>Device is Deleted Sucessfully</h3>
+        <div align="center">
+            <a href="#/Devices"> <input class="btn btn-default" type="button" value="Back" /></a>
+        </div>
+    </div>
+
+    <div ng-show="isDeviceSavedSucess">
+        
+        <div align="center">
+            <h3>Device is Saved Sucessfully</h3>
+            <a href="#/Devices"> <input class="btn btn-default" type="button" value="Back" /></a>
+        </div>
+    </div>
+</div>

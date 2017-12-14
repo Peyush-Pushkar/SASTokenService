@@ -1,0 +1,457 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Daenet.SecurityManager.Client</name>
+    </assembly>
+    <members>
+        <member name="T:Daenet.SecurityManager.Client.ScmAuthorizationPolicy">
+            <summary>
+            Implements the custom authoriation mechanism based on SecurityManager roles.
+            This class is installed by <see cref="T:Daenet.SecurityManager.Client.SecurityManagerBehavior"/>.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.ScmAuthorizationPolicy.m_PrincipalCache">
+            <summary>
+            The cache for the ScmPrincipals.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.ScmAuthorizationPolicy.m_ApplicationID">
+            <summary>
+            Stores the application ID.
+            </summary>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmAuthorizationPolicy.#ctor(System.Guid,System.Boolean,Daenet.SecurityManager.Client.WebService.UserInclude,System.String)">
+            <summary>
+            Creates the instance of authorization policy class in context of specifi application.
+            </summary>
+            <param name="applicationId">Specifies the identifier of tha application in which the authorization policy acts.</param>
+            <param name="impersonateCaller"></param>
+            <param name="userInclude">The User include specified which data are get from the user.</param>
+            <param name="serviceAuthorizationKey">The key used when the service needs to create the token on behalf of the caller
+            without password.</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmAuthorizationPolicy.Evaluate(System.IdentityModel.Policy.EvaluationContext,System.Object@)">
+            <summary>
+            Creates the principal object of the user.
+            </summary>
+            <param name="evaluationContext"></param>
+            <param name="state">Not used.</param>
+            <returns>True if the class has performed authorization.</returns>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmAuthorizationPolicy.Issuer">
+            <summary>
+            The issuer of the policy.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmAuthorizationPolicy.Id">
+            <summary>
+            The is of the policy.
+            </summary>
+        </member>
+        <member name="T:Daenet.SecurityManager.Client.ScmIdentity">
+            <summary>
+            Identity used with Security Manager.
+            </summary>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmIdentity.#ctor(System.String)">
+            <summary>
+            Creates identity from name.
+            </summary>
+            <param name="identityName">Identity name.</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmIdentity.#ctor(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Creates identity from token received from caller's hop.
+            </summary>
+            <param name="claims">Must contain at least claim 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'.
+            Optionally it can contain also the raw token in claim 'http://daenet.com/oauth/token'</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmIdentity.ToString">
+            <summary>
+            Name of identity.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmIdentity.OAuthToken">
+            <summary>
+            Contains the original raw OAuth token. This value is NULL if authorization didn't
+            happen by using raw OAuth token.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmIdentity.User">
+            <summary>
+            User instance as defined in Security Manager.
+            </summary>
+            <remarks>
+            This property contains user data returned by Security Manager if some data has been requested.
+            </remarks>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmIdentity.Roles">
+            <summary>
+            Roles of the user as defined in Security Manager.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmIdentity.Claims">
+            <summary>
+            Populated only if the token originates from caller's hop.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmIdentity.AuthenticationType">
+            <summary>
+            http://daenet.com/securitymanager
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmIdentity.IsAuthenticated">
+            <summary>
+            By default true.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmIdentity.Name">
+            <summary>
+            Name of user authorized aganist SecurityManager.
+            </summary>
+        </member>
+        <member name="T:Daenet.SecurityManager.Client.ScmPrincipal">
+            <summary>
+            Implements custom SecurityManager principal. This class is responsable
+            to resolve user identity (roles) by using of SecuritymanagrService.ResolveIdentity() operation.
+            Additionally it implements the caching of roles.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.ScmPrincipal.m_ApplicationID">
+            <summary>
+            Stores the application ID.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.ScmPrincipal.m_Identity">
+            <summary>
+            Stores the identity. 
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.ScmPrincipal.m_UserIdentity">
+            <summary>
+            Identity of the user account.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.ScmPrincipal.m_ServiceIdentity">
+            <summary>
+            Identity of the service account.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.ScmPrincipal.m_LastUpdate">
+            <summary>
+            Used to invalidate the cache.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.ScmPrincipal.m_CacheValidityInterval">
+            <summary>
+            Specify how long the role-cache is valid.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.ScmPrincipal.m_ImpersonateCaller">
+            <summary>
+            Indicates of the current windows user is automatically impersonated.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.ScmPrincipal.m_UserInclude">
+            <summary>
+            Stores which data of the user is returned.
+            </summary>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmPrincipal.#ctor(System.Security.Principal.IIdentity,System.Guid,System.Boolean,Daenet.SecurityManager.Client.WebService.UserInclude)">
+            <summary>
+            Creates the custom principal instance without service identity with default cache intervall of 10 minutes.
+            </summary>
+            <param name="identity">Identity of the user (typically the caller of the service).</param>
+            <param name="applicationId">The application context as defined in SecurityManager.</param>
+            <param name="impersonateCaller">Indicates if the caller is automatically impersonated.</param>
+            <param name="userInclude">Specified which data of the user is included.</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmPrincipal.#ctor(System.Security.Principal.IIdentity,System.Guid)">
+            <summary>
+            Creates the custom principal instance without service identity.
+            </summary>
+            <param name="identity">Identity of the user (typically the caller of the service).</param>
+            <param name="applicationId">The application context as defined in SecurityManager.</param>
+            <param name="cacheValidityInterval">Specicies how long the cahce is valid.</param>
+            <param name="impersonateCaller">Indicates if the caller is automatically impersonated.</param>
+            <param name="userInclude">Specified which data of the user is included.</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmPrincipal.#ctor(System.Security.Principal.IIdentity,System.Security.Principal.IIdentity,System.Guid,System.TimeSpan,System.Boolean,Daenet.SecurityManager.Client.WebService.UserInclude)">
+            <summary>
+            Creates the custom principal instance.
+            </summary>
+            <param name="serviceIdentity">Identity of the service.</param>
+            <param name="identity">Identity of the user (typically the caller of the service).</param>
+            <param name="applicationId">The application context as defined in SecurityManager.</param>
+            <param name="cacheValidityInterval">Specicies how long the cahce is valid.</param>
+            <param name="impersonateCaller">Indicates if the caller is automatically impersonated.</param>
+            <param name="userInclude">Specified which data of the user is included.</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmPrincipal.GetRoles">
+            <summary>
+            Gets the list of principal roles.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmPrincipal.IsInRole(System.String)">
+            <summary>
+            Returns true if the principal is in specified Role.
+            </summary>
+            <param name="role">The role to be approved.</param>
+            <returns>TRUE if it is in specified role.</returns>
+            <remarks>This method will load roles form SecurityManager service on first call and will persist retrieved roles
+            in the internally managed cache. After cache is invalidated, roles will be reloaded.</remarks>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmPrincipal.resolveIdentity">
+            <summary>
+            Loads the roles from service.
+            </summary>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmPrincipal.ImpersonateService">
+            <summary>
+            Switches the principal to the service principal.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if the service ideintity does not exist.</exception>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmPrincipal.ImpersonateUser">
+            <summary>
+            Switches the principal to the user's principal.
+            </summary>     
+            <exception cref="T:System.InvalidOperationException">Thrown if the user ideintity does not exist.</exception>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.ScmPrincipal.Impersonate(System.Boolean)">
+            <summary>
+            Shwitches the principal to user or service.
+            </summary>
+            <param name="isService">TRUE if service principal has to be set.</param>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmPrincipal.UserIdentity">
+            <summary>
+            Identity instance of the user.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmPrincipal.ApplicationID">
+            <summary>
+            Gets the applicationID
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmPrincipal.IsServicePrincipal">
+            <summary>
+            TRUE if the current princpal is service principal.
+            FALSE if the currentl principal is the user principal.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmPrincipal.IsUserPrincipal">
+            <summary>
+            FALSE if the current princpal is service principal.
+            TRUE if the currentl principal is the user principal.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmPrincipal.User">
+            <summary>
+            Gets the user object. The user property is only filled if the UserIncude is not "None".
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmPrincipal.Roles">
+            <summary>
+            Keeps the list of roles of the current identity.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmPrincipal.LastUpdate">
+            <summary>
+            The last update time of the the user.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmPrincipal.Identity">
+            <summary>
+            Gets the prinicpal's identity.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.ScmPrincipal.ServiceIdentity">
+            <summary>
+            Gets the service identity. This is the identity of the service application/account.
+            </summary>
+        </member>
+        <member name="T:Daenet.SecurityManager.Client.SecurityManagerBehavior">
+            <summary>
+            Implements WCF extensibility behavior responsable to install custom <see cref="T:Daenet.SecurityManager.Client.ScmAuthorizationPolicy"/>.
+            This behavior is used when some other service has to make usage of SecurityManager authorization.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.SecurityManagerBehavior.m_ApplicationID">
+            <summary>
+            Stores the applciation ID.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.SecurityManagerBehavior.m_ImpersonateCaller">
+            <summary>
+            Stores the if the user is impersonated.
+            </summary>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerBehavior.#ctor(System.String)">
+            <summary>
+            Constructs a SecurityManagerBehavior
+            </summary>
+            <param name="applicationId">The id of the application.</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerBehavior.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Constructs a SecurityManagerBehavior
+            </summary>
+            <param name="applicationId">The id of the application.</param>
+            <param name="impersonateCaller">Indicates if the user automaically impersonated.</param>
+            <param name="serviceAuthorizationKey">The key used when the service needs to create the token on behalf of the caller
+            without password.</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerBehavior.AddBindingParameters(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase,System.Collections.ObjectModel.Collection{System.ServiceModel.Description.ServiceEndpoint},System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            Not used.
+            </summary>
+            <param name="serviceDescription"></param>
+            <param name="serviceHostBase"></param>
+            <param name="endpoints"></param>
+            <param name="bindingParameters"></param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase)">
+            <summary>
+            Perfomrs the installation of  <see cref="T:Daenet.SecurityManager.Client.ScmAuthorizationPolicy"/>.
+            </summary>
+            <param name="serviceDescription">Not used.</param>
+            <param name="serviceHostBase">Service host instance which will be used to hold custom authorization behavior.</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerBehavior.Validate(System.ServiceModel.Description.ServiceDescription,System.ServiceModel.ServiceHostBase)">
+            <summary>
+            Not used.
+            </summary>
+            <param name="serviceDescription"></param>
+            <param name="serviceHostBase"></param>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.SecurityManagerBehavior.UserInclude">
+            <summary>
+            Gets or sets which user information are included in the ScmPrincipal in the User Property.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.SecurityManagerClient.m_PrincipalCache">
+            <summary>
+            The cache for the ScmPrincipals.
+            </summary>
+        </member>
+        <member name="F:Daenet.SecurityManager.Client.SecurityManagerClient.m_ApplicationId">
+            <summary>
+            Stores the application ID.
+            </summary>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.#ctor">
+            <summary>
+            Creates instance of an user. 
+            When using this constructor, impersonation againist AdminService is not supported.
+            </summary>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.#ctor(System.Guid)">
+            <summary>
+            Creates the instance in context of specified user and application.
+            </summary>
+            <param name="applicationId">Application for which impersonation has to be done.</param>
+            <remarks>Note that the instance will be created in context of interactive user.</remarks>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.GetOAuthToken">
+            <summary>
+            Gets the raw OAuth token as string.
+            </summary>
+            <returns>NULL if the identity is not created from OAuth token.</returns>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.ImpersonateWindowsIdentityToOAuth">
+            <summary>
+            
+            </summary>
+            <returns>TRUE if the current Windows Identity has been successfully transorfmed to OAuth related identity.
+            FALS if the current identity is not WindowsIdentity.</returns>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.Impersonate(System.String)">
+            <summary>
+            Impersonates the given user as <see cref="T:System.Security.Principal.GenericIdentity"/> and <see cref="T:Daenet.SecurityManager.Client.ScmPrincipal"/>. 
+            </summary>
+            <param name="userName">Th user name to be impersonated.</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.Impersonate(System.Security.Principal.IIdentity)">
+            <summary>
+            Impersonates the given identity as <see cref="T:Daenet.SecurityManager.Client.ScmPrincipal"/>.
+            </summary>
+            <param name="identity"></param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.Impersonate(System.Security.Principal.IIdentity,System.Collections.Specialized.NameValueCollection,System.TimeSpan,Daenet.SecurityManager.Client.WebService.UserInclude)">
+            <summary>
+            Impersonates claims by creating ClaimIdentity attached to ScmPrincipal.
+            </summary>
+            <param name="serviceIdentity">Identity of the service. It can be NULL.</param>
+            <param name="claims"></param>
+            <param name="cacheIntervall"></param>
+            <param name="userInclude"></param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.Impersonate(System.Security.Principal.IIdentity,System.Security.Principal.IIdentity,System.TimeSpan,Daenet.SecurityManager.Client.WebService.UserInclude,System.Boolean,System.Func{System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String}})">
+            <summary>
+            Performs impersonation of specific user in context of specified application.
+            Application is specified by creating of the instance of <see cref="T:Daenet.SecurityManager.Client.SecurityManagerClient"/>.
+            Impersonation process is completed at some later point of time. After completion the callbak method 
+            'impersonateCompletedDelegate' is invoked.
+            </summary>
+            <param name="identity">Identity of this principal.</param>
+            <param name="serviceIdentity">Identity of the service.</param>
+            <param name="outerIdentity">The user's identity which will be impersonated. If 'null' the interactive user will be impersonated.
+            If null, but no interactive user exists (for example WinForms app), the the service idenity will be impersonated.</param>
+            <param name="cacheIntervall">The maximum caching interval before the next service call is made.</param>
+            <remarks>
+            Before calling of this method be sure that one of following constructors 
+            has been called: <see cref="M:Daenet.SecurityManager.Client.SecurityManagerClient.#ctor(System.Guid)"/>
+            </remarks>
+            <param name="userInclude">Defines which informations are retrieved from the user object.</param>
+            <param name="roleFilter">A method which can be used to filter the roles which are stored in the ScmPrincipal object. </param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.throwOnError(System.String,System.Exception,System.Object)">
+            <summary>
+            Here we do impersonation of specified identity as <see cref="T:Daenet.SecurityManager.Client.ScmPrincipal"/>.
+            </summary>
+            <param name="identity">The identity of the user.</param>
+            <param name="strRoles">List of roles.</param>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.GetSwtFromUtaToken(System.String,System.String,System.String)">
+            <summary>
+            Creates SImple Web Token (OAuth) for given user and UTA token.
+            </summary>
+            <param name="userName">The user for whom the context will be impersonated. </param>
+            <param name="utaToken">The UTA token.</param>
+            <param name="applicationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.GetSwtForIdentityName(System.String,System.String,System.String)">
+            <summary>
+            Returns the OAuth token from STS for specified identity without of using of password.
+            This operaiton can only be performed by authorized services.
+            </summary>
+            <param name="identityName">The name of identity for which the token has to be created.</param>
+            <param name="serviceKey">Key used to authorize the service by STS.</param>
+            <param name="applicationId">The WRAP scope, which specifies the application identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Daenet.SecurityManager.Client.SecurityManagerClient.GetSwtFromWindowsToken(System.String,System.String)">
+            <summary>
+            Gets the OAuth token for currentlly logged in Windows Identity.
+            </summary>
+            <param name="serviceKey">Key used to authorize the service by STS.</param>
+            <param name="applicationId">The WRAP scope, which specifies the application identifier.</param>
+            <remarks>This operaiton can only be performed by authorized services.</remarks>
+            <returns></returns>
+        </member>
+        <member name="E:Daenet.SecurityManager.Client.SecurityManagerClient.ImpersonateCompleted">
+            <summary>
+            The Event for the impersonate completed.
+            </summary>
+        </member>
+        <member name="P:Daenet.SecurityManager.Client.SecurityManagerClient.IsOAuthIdentity">
+            <summary>
+            Returns TRUE if the CurrentPrincilap is created from OAuth token.
+            </summary>
+        </member>
+    </members>
+</doc>

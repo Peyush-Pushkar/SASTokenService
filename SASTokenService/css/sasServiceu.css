@@ -1,0 +1,39 @@
+﻿body {
+}
+
+
+.paginationclass{
+    
+ margin: 25px 50px;  
+}
+.paginationclass span{
+    margin: 0px 50px;
+            display: inline-block;
+            padding: 5px 0px;
+            text-align: left;
+            width: 70px;
+}
+.pagination-controle li{
+    display: inline-block;
+}
+.pagination-controle button{
+    font-size: 12px;
+    margin-top: -26px;
+    cursor:pointer;
+    
+}
+.pagination{
+    margin:5px 12px !important;
+}
+
+
+.Error{
+    color: #000000; 
+    background-color: #ff0000;
+    margin: auto;
+}
+.Sucess{
+    color: #000000; 
+    background-color: green;
+    margin: auto;
+}

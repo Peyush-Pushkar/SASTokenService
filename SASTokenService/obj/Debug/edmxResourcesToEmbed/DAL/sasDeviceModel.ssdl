@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sasDeviceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SasDeviceDetail">
+    <Key>
+      <PropertyRef Name="DeviceId" />
+    </Key>
+    <Property Name="DeviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DeviceKey" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="KeyValidity" Type="datetime" Nullable="false" />
+    <Property Name="Ip" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Owner" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Function Name="USP_SasDevice_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeviceId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_SasDevice_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeviceKey" Type="varchar" Mode="In" />
+    <Parameter Name="KeyValidity" Type="datetime" Mode="In" />
+    <Parameter Name="DeviceName" Type="varchar" Mode="In" />
+    <Parameter Name="Ip" Type="varchar" Mode="In" />
+    <Parameter Name="Owner" Type="varchar" Mode="In" />
+    <Parameter Name="Location" Type="varchar" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="USP_SasDevice_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StringToFind" Type="varchar" Mode="In" />
+    <Parameter Name="DeviceId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_SasDevice_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeviceId" Type="int" Mode="In" />
+    <Parameter Name="DeviceKey" Type="varchar" Mode="In" />
+    <Parameter Name="KeyValidity" Type="datetime" Mode="In" />
+    <Parameter Name="DeviceName" Type="varchar" Mode="In" />
+    <Parameter Name="Ip" Type="varchar" Mode="In" />
+    <Parameter Name="Owner" Type="varchar" Mode="In" />
+    <Parameter Name="Location" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="sasDeviceModelStoreContainer">
+    <EntitySet Name="SasDeviceDetail" EntityType="Self.SasDeviceDetail" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

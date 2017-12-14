@@ -1,0 +1,155 @@
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\appsettings.json
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\SasTokenService.dll.config
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\SasTokenService.XML
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\SasTokenService.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\SasTokenService.pdb
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Daenet.SecurityManager.Owin.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\EntityFramework.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\EntityFramework.SqlServer.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Abstractions.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Extensions.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Features.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Azure.KeyVault.Core.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.Binder.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.OptionsModel.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Primitives.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.WebEncoders.Core.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Net.Http.Headers.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.ActiveDirectory.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.Jwt.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.OAuth.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.Twitter.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.ServiceBus.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.WindowsAzure.Configuration.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.WindowsAzure.Storage.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Newtonsoft.Json.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Owin.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Net.Http.Formatting.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Spatial.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Web.Cors.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Web.Http.Cors.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Web.Http.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Web.Http.WebHost.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Daenet.SecurityManager.Client.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\EntityFramework.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\EntityFramework.SqlServer.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Abstractions.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Extensions.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Features.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Azure.KeyVault.Core.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.Binder.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.OptionsModel.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Primitives.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.WebEncoders.Core.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Net.Http.Headers.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.ActiveDirectory.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.Jwt.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.OAuth.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.Twitter.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.ServiceBus.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.WindowsAzure.Configuration.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.WindowsAzure.Storage.pdb
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Microsoft.WindowsAzure.Storage.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Newtonsoft.Json.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.IdentityModel.Tokens.Jwt.pdb
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Net.Http.Formatting.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Spatial.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Web.Http.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Web.Http.Cors.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\System.Web.Http.WebHost.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Daenet.SecurityManager.Client.pdb
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\bin\Daenet.SecurityManager.Client.xml
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\obj\Debug\SASTokenService.csprojResolveAssemblyReference.cache
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\obj\Debug\SasTokenService.dll
+D:\VSProjects\SAS Token\SASTokenProject\SASTokenService\obj\Debug\SasTokenService.pdb
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\appsettings.json
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\SasTokenService.dll.config
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\SasTokenService.XML
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\SasTokenService.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\SasTokenService.pdb
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Daenet.SecurityManager.Owin.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\EntityFramework.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\EntityFramework.SqlServer.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Abstractions.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Extensions.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Features.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.OptionsModel.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.WebEncoders.Core.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Net.Http.Headers.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.ActiveDirectory.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.Jwt.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.ServiceBus.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Newtonsoft.Json.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Owin.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Net.Http.Formatting.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Spatial.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Web.Cors.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Web.Http.Cors.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Web.Http.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Web.Http.WebHost.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Daenet.SecurityManager.Client.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\EntityFramework.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\EntityFramework.SqlServer.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Abstractions.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Extensions.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.AspNet.Http.Features.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.OptionsModel.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Extensions.WebEncoders.Core.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Net.Http.Headers.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.ActiveDirectory.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.Jwt.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.ServiceBus.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Newtonsoft.Json.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Net.Http.Formatting.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Spatial.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Web.Http.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Web.Http.Cors.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\System.Web.Http.WebHost.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Daenet.SecurityManager.Client.pdb
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\bin\Daenet.SecurityManager.Client.xml
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\obj\Debug\SasTokenService.dll
+C:\Users\peyush\Documents\Git Local Repo\SASTokenProject\SASTokenService\obj\Debug\SasTokenService.pdb

@@ -1,0 +1,44 @@
+﻿ <div ng-init="init()">
+        <p class="error">{{error}}</p>
+     
+        <p>{{loadingMessage}}</p>
+     <div ng-show="loading" class="loading"><img src="../Images/ajax-loader.gif" width="20" height="20" />LOADING...</div>
+        <div class="col-sm-8">
+            <div class="input-group">
+                <!--<p>{{token}}</p>-->
+
+                <input class="form-control" type="radio" ng-model="input" ng-value="'EVENTHUB'" name="Token" value="EventHubServiceBus"> EventHubServiceBus<br>
+                <input class="form-control" type="radio" ng-model="input" ng-value="'QUEUESB'" name="Token" value="QueueServiceBus"> QueueServiceBus<br>
+                <input class="form-control" type="radio" ng-model="input" ng-value="'TOPIC'" name="Token" value="TopicServiceBus"> TopicServiceBus<br>
+                <input class="form-control" type="radio" ng-model="input" ng-value="'QUEUE'" name="Token" value="AzureQueue"> AzureQueue<br>
+                <input class="form-control" type="radio" ng-model="input" ng-value="'TABLE'" name="Token" value="AzureTable"> AzureTable<br>
+                <input class="form-control" type="radio" ng-model="input" ng-value="'BLOB'" name="Token" value="AzureBlob"> AzureBlob<br>
+                <input class="form-control" type="radio" ng-model="input" ng-value="'IoTHub'" name="Token" value="IoTHub"> IoTHub<br>
+
+                <br />
+                <br />
+
+                <button  ng-disabled="!input || deviceId.length==0 || deviceKey.length==0" type="submit" ng-click="getSasToken(input);" class="btn btn-primary">CreateToken</button>
+
+                <br />
+                <br />
+
+                <input ng-model="token" class="form-control input-normal" ng-disabled="true" size="500" maxlength="700" />
+
+            </div>
+            <br />
+            <!--
+            GetTokenFor:<input type="text"  ng-model="input"  name="IDFor" value="Please Provide sb ,Blob,Table or Queue " size="60"/><br />-->
+            <br />
+            <br />
+        </div>
+
+
+         <div class="col-sm-4">
+             <pre>Device Id and Device Key Details</pre>
+
+             deviceId:<input class="form-control" type="text" ng-model="deviceId" name="Token" value="AzureBlob"><br>
+             deviceKey:<input class="form-control" type="text" ng-model="deviceKey" name="Token" value="AzureBlob"><br>
+
+         </div>
+     </div>

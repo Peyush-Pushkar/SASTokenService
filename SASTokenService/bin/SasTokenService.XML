@@ -1,0 +1,1145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SasTokenService</name>
+    </assembly>
+    <members>
+        <member name="T:SasTokenService.Startup">
+            <summary>
+            Class to Load the Devices.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.Startup.ConfigureKeyAuth(Owin.IAppBuilder)">
+            <summary>
+            Method To Validate the User
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:SasTokenService.Startup.ConfigureOAuthMockAuthentication(Owin.IAppBuilder)">
+            <summary>
+            Use this method if you want quickly to activate mocked built in OAuth token provider.
+            Later in production, you can exchange this provider aganist real one.
+            This one is used for demo purposes only and enables you to quickly start with 
+            Security Manager and custom authorization.
+            </summary>
+            <param name="appBuilder"></param>
+        </member>
+        <member name="M:SasTokenService.Startup.ConfigureSecManAuthorization(Owin.IAppBuilder)">
+            <summary>
+            Use this method to activate Security Manager authorization
+            </summary>
+            <param name="appBuilder"></param>
+        </member>
+        <member name="M:SasTokenService.Startup.Configuration(Owin.IAppBuilder)">
+            <summary>
+            Method To Load Configuration
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="T:SasTokenService.WebApiConfig">
+            <summary>
+            Class to Load Web API related configuration
+            </summary>
+        </member>
+        <member name="M:SasTokenService.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Method to Load Web Api Configuration
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:SasTokenService.SasProviderConfiguration">
+            <summary>
+            Class To Hold Deatils for Configuration Details
+            </summary>
+        </member>
+        <member name="P:SasTokenService.SasProviderConfiguration.ProviderQN">
+            <summary>
+            Provider qualified name.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.SasProviderConfiguration.ProviderId">
+            <summary>
+            Getter and Setter for Provided Id
+            </summary>
+        </member>
+        <member name="P:SasTokenService.SasProviderConfiguration.Values">
+            <summary>
+            List of values.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.SasProviderConfiguration.Mappings">
+            <summary>
+            List of mappings to values.
+            </summary>
+        </member>
+        <member name="T:SasTokenService.Mapping">
+            <summary>
+            Defines how to map sensitive data.
+            For example Topic KeyName 'CAN_SEND' could be mapped as:
+            MapFrom: 'BLAKEY' to MapTo: 'CAN_SEND'.
+            Client would send 'BLA_KEY', which does not exist in the service.
+            SAS TokenService would map BLA_KEY to CAN_SEND key, which exists in Event Hub.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Mapping.MapFrom">
+            <summary>
+             Getter and Setter for MapFrom
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Mapping.MapTo">
+            <summary>
+            Getter and Setter for MapTo
+            </summary>
+        </member>
+        <member name="T:SasTokenService.Controllers.DeviceRegistryController">
+            <summary>
+            Class to create , Find, Delete a device.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.Controllers.DeviceRegistryController.#cctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.Controllers.DeviceRegistryController.loadConfigForDeviceRegistry">
+            <summary>
+            Load the differnet Device Details Providers. One interacts with DB another uses Cache
+            </summary>
+        </member>
+        <member name="M:SasTokenService.Controllers.DeviceRegistryController.QueryDevices(SasTokenService.Entities.DeviceQuery)">
+            <summary>
+            TO search for a string related to any device and fetch the devices
+            </summary>
+            <param name="query"></param>
+            <returns>List of devices</returns>
+        </member>
+        <member name="M:SasTokenService.Controllers.DeviceRegistryController.GetDeviceById(System.Int32)">
+            <summary>
+            To get the list of devices based device ID
+            </summary>
+            <param name="deviceId"></param>
+            <returns>List of devices based on deviceID</returns>
+        </member>
+        <member name="M:SasTokenService.Controllers.DeviceRegistryController.RegisterNewDevice(SasTokenService.Entities.DeviceQuery)">
+            <summary>
+            Registers a new device in device registry.
+            </summary>
+            <param name="newdevice">param of Type Device which Holds deatils of Device</param>
+        </member>
+        <member name="M:SasTokenService.Controllers.DeviceRegistryController.UpdateDevice(SasTokenService.Entities.DeviceQuery)">
+            <summary>
+            To update the device data in the database 
+            </summary>
+            <param name="deviceQuery"></param>
+            <returns>Information related to updation of device data</returns>
+        </member>
+        <member name="M:SasTokenService.Controllers.DeviceRegistryController.DeleteDevice(SasTokenService.Entities.DeviceQuery)">
+            <summary>
+            To delete device from the database based on deviceId
+            </summary>
+            <param name="devicetoBeDeleted"></param>
+            <returns>Information related to deletion of device</returns>
+        </member>
+        <member name="T:SasTokenService.DAL.DeviceRegistryDal">
+            <summary>
+            Class to delete , Create , and list all devices. 
+            </summary>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDal.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDal.Create(SasTokenService.Entities.Device)">
+            <summary>
+            Method to Create a new Device in Table
+            </summary>
+            <param name="device"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDal.DeleteDevice(System.Int64)">
+            <summary>
+            Method To delete The Device From Table
+            </summary>
+            <param name="deviceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDal.GetDevices">
+            <summary>
+            Method to Get All Devices from Database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDal.QueryDevices(SasTokenService.Entities.DeviceQuery)">
+            <summary>
+            Method to list All Devices
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDal.UpdateDevice(SasTokenService.Entities.Device)">
+            <summary>
+            Method To update the Context.
+            </summary>
+            <param name="device"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SasTokenService.DAL.DeviceRegistryDalCache">
+            <summary>
+            Class to Implement the cache mechanism . This class stores device details in a static list
+            </summary>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDalCache.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="F:SasTokenService.DAL.DeviceRegistryDalCache.deviceList">
+            <summary>
+            Static List of Device to hold pre defined values.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDalCache.Create(SasTokenService.Entities.Device)">
+            <summary>
+            Method to add a new Device to List
+            </summary>
+            <param name="device"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDalCache.DeleteDevice(System.Int64)">
+            <summary>
+            Method to remove a device details from List.
+            </summary>
+            <param name="deviceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDalCache.GetDevices">
+            <summary>
+            Method To get List of Devices.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDalCache.QueryDevices(SasTokenService.Entities.DeviceQuery)">
+            <summary>
+            Method To return list of devices based on Query Details.
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.DeviceRegistryDalCache.UpdateDevice(SasTokenService.Entities.Device)">
+            <summary>
+            Method to update a existing record from the List.
+            </summary>
+            <param name="updatedDevice"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SasTokenService.DAL.DeviceRegistryDalCache.Id">
+            <summary>
+            ID of Class
+            </summary>
+        </member>
+        <member name="P:SasTokenService.DAL.DeviceRegistryDalCache.Configuration">
+            <summary>
+            Getter and Setter for Configuration values.
+            </summary>
+        </member>
+        <member name="T:SasTokenService.DAL.IDeviceRegistryDal">
+            <summary>
+            Defined Interface For acessing Data Access Layer
+            </summary>
+        </member>
+        <member name="M:SasTokenService.DAL.IDeviceRegistryDal.DeleteDevice(System.Int64)">
+            <summary>
+            Method To Delete a Existing Device
+            </summary>
+            <param name="deviceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.IDeviceRegistryDal.QueryDevices(SasTokenService.Entities.DeviceQuery)">
+            <summary>
+            Method To Get existing Device.
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.IDeviceRegistryDal.Create(SasTokenService.Entities.Device)">
+            <summary>
+            Method To  Create a new Deive
+            </summary>
+            <param name="device"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.IDeviceRegistryDal.UpdateDevice(SasTokenService.Entities.Device)">
+            <summary>
+            Method To Update a Device 
+            </summary>
+            <param name="device"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.IDeviceRegistryDal.GetDevices">
+            <summary>
+            Method To get All Devices
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SasTokenService.DAL.SasDeviceContext">
+            <summary>
+            Extends EF context for extra functonality required bu creating of new device.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.DAL.SasDeviceContext.InsertNewDevice(System.String,System.Nullable{System.DateTime},System.String,System.String,System.String,System.String)">
+            <summary>
+            Inserts the device in registry database and returns the identifier.
+            </summary>
+            <param name="deviceKey"></param>
+            <param name="keyValidity"></param>
+            <param name="deviceName"></param>
+            <param name="ip"></param>
+            <param name="owner"></param>
+            <param name="location"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SasTokenService.DAL.PersistenceProvider`1">
+            <summary>
+            Class To Create, Update ,Delete a new Device in Database.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:SasTokenService.DAL.PersistenceProvider`1.#ctor">
+            <summary>
+            Constructor to set m_DbContext
+            </summary>
+        </member>
+        <member name="M:SasTokenService.DAL.PersistenceProvider`1.Create(`0)">
+            <summary>
+            Method To Create a new Device table.
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.PersistenceProvider`1.Delete(`0)">
+            <summary>
+            Method To Delete a Device From Table.
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.PersistenceProvider`1.GetItems">
+            <summary>
+            Method To Get all Devices from Table.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DAL.PersistenceProvider`1.Update(`0)">
+            <summary>
+            Method To Update a existing Record 
+            </summary>
+            <param name="updatedEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SasTokenService.SasTokenController">
+            <summary>
+            Implements the WebAPI controller, which can creates various SAS tokens.
+            This controller does not create token by itself. It uses implementations if <see cref="T:SasTokenService.ISasTokenProvider"/> interfaces.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.SasTokenController.#cctor">
+            <summary>
+            In this version we do not support full-loader for providers.
+            Right now we load providers dynamically from configuration.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.SasTokenController.buildTokenPoviders">
+            <summary>
+            Creates the instance of different Type of Providers
+            </summary>
+        </member>
+        <member name="M:SasTokenService.SasTokenController.GetTokenProviders">
+            <summary>
+            Returns the list of all installed token providers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.SasTokenController.CreateToken(SasTokenService.Model.CreateTokenRequest)">
+            <summary>
+            Creates the token.
+            </summary>
+            <param name="request">Request which contains all required data for token generation.</param>
+            <returns>Token value.</returns>
+        </member>
+        <member name="T:SasTokenService.Entities.Device">
+            <summary>
+             Class to Hold Details for Device
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.Device.DeviceID">
+            <summary>
+            Getter and Setter For DeviceID Field
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.Device.Name">
+            <summary>
+            Getter and Setter For Name Field
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.Device.DeviceKey">
+            <summary>
+            Getter and Setter For DeviceKey Field
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.Device.KeyValidity">
+            <summary>
+            Getter and Setter For KeyValidity Field
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.Device.IP">
+            <summary>
+            Getter and Setter For Ip Field
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.Device.Owner">
+            <summary>
+            Getter and Setter For Owner Field
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.Device.GeoPosition">
+            <summary>
+            Getter and Setter For GeoPosition Field
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.Device.Uri">
+            <summary>
+            Getter and Setter For Uri Field
+            </summary>
+        </member>
+        <member name="T:SasTokenService.Entities.DeviceQuery">
+            <summary>
+            Class to Hold Device Details.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.DeviceQuery.ID">
+            <summary>
+            Getter Setter for Id Field of Device.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.DeviceQuery.Name">
+            <summary>
+            Getter Setter for Name Field of Device.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.DeviceQuery.Uri">
+            <summary>
+            Getter Setter for uri Field of Device.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.DeviceQuery.IP">
+            <summary>
+            Getter Setter for IP  Field of Device.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.DeviceQuery.DeviceKey">
+            <summary>
+            Getter Setter for Device key Field of Device.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.DeviceQuery.MaxResults">
+            <summary>
+            Getter Setter for MaxResults Field of Device.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.DeviceQuery.KeyValidity">
+            <summary>
+            Getter and Setter For KeyValidity Field
+            </summary>
+        </member>
+        <member name="T:SasTokenService.Entities.PersistenceContext">
+            <summary>
+            Class To Laod The Context
+            </summary>
+        </member>
+        <member name="M:SasTokenService.Entities.PersistenceContext.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.PersistenceContext.Devices">
+            <summary>
+            Db Set for Device
+            </summary>
+        </member>
+        <member name="M:SasTokenService.Entities.PersistenceContext.OnModelCreating(System.Data.Entity.DbModelBuilder)">
+            <summary>
+            Method To update the Context
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:SasTokenService.Entities.EntityBase">
+            <summary>
+            Class to Store Genric Parameters
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.EntityBase.CreatedAt">
+            <summary>
+            Getter and Setter for CreatedAt Field of Type DateTime
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.EntityBase.ChangedAt">
+            <summary>
+            Getter and Setter for CreatedAt Field of Type DateTime
+            </summary>
+        </member>
+        <member name="T:SasTokenService.Entities.InstalledProvider">
+            <summary>
+            Class to Hold Details Of all Avaialable Providers.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.InstalledProvider.Id">
+            <summary>
+            Getter and Settter for ID Field oF Provider.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.InstalledProvider.Description">
+            <summary>
+            Getter and Settter for Description Field oF Provider.
+            </summary>
+        </member>
+        <member name="T:SasTokenService.Entities.Token">
+            <summary>
+            Class To hold Response of Web Api
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.Token.RawToken">
+            <summary>
+            Getter and Setter for Token .
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.Token.ExpiresInSeconds">
+            <summary>
+            Getter and Setter for Time Duration
+            </summary>
+        </member>
+        <member name="T:SasTokenService.Entities.ServiceBusTokenArgs">
+            <summary>
+            Class To Holds Details For Service Bus Details
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.ServiceBusTokenArgs.SbNamespace">
+            <summary>
+            Getter and Setter for Field Service Bus name Space. 
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.ServiceBusTokenArgs.EntityType">
+            <summary>
+            Getter and Setter for Type of Service Bus Requested
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.ServiceBusTokenArgs.Path">
+            <summary>
+            Getter and Setter for Path Of Entity
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.ServiceBusTokenArgs.KeyName">
+            <summary>
+            Getter and Setter for Key
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.ServiceBusTokenArgs.Provider">
+            <summary>
+            Getter and Setter for Provider of Service Bus
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.ServiceBusTokenArgs.ConnectionString">
+            <summary>
+            Varuable to Store Connection String of Service Bus
+            </summary>
+        </member>
+        <member name="T:SasTokenService.Entities.StorageTokenArgs">
+            <summary>
+            Class to Hold Details for Storage Service Details
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.StorageTokenArgs.AccountName">
+            <summary>
+            Storage account name. This can be alias of storage account,
+            which can be mapped to the real storage account.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.StorageTokenArgs.Name">
+            <summary>
+            Name of queue, blab, container or table.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.StorageTokenArgs.Accountkey">
+            <summary>
+            Getter and Setter for Account Key Details
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.StorageTokenArgs.ConnectionString">
+            <summary>
+            Gettter and Setter for Connection Details For Storage Services
+            </summary>
+        </member>
+        <member name="T:SasTokenService.Entities.IoTHubTokenArgs">
+            <summary>
+            Class to Hold Iot Details
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.IoTHubTokenArgs.IoTHubUri">
+            <summary>
+            Getter and Setter for IOT Uri 
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.IoTHubTokenArgs.DeviceName">
+            <summary>
+            Getter and Setter for Device Name
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.IoTHubTokenArgs.DeviceKey">
+            <summary>
+            Getter and Setter for Device Key
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Entities.IoTHubTokenArgs.Duration">
+            <summary>
+            Getter and Setter for Duration Field
+            </summary>
+        </member>
+        <member name="T:SasTokenService.WebApiApplication">
+            <summary>
+            Class To Initialize the Application
+            </summary>
+        </member>
+        <member name="M:SasTokenService.WebApiApplication.Application_Start">
+            <summary>
+            Method to Start the Application
+            </summary>
+        </member>
+        <member name="T:SasTokenService.Model.CreateTokenRequest">
+            <summary>
+            Class To hold Details of Token Request. 
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Model.CreateTokenRequest.ProviderId">
+            <summary>
+            Getter Setter for ProviderId
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Model.CreateTokenRequest.TokenIdentifier">
+            <summary>
+            Getter Setter for TokenIdentifier
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Model.CreateTokenRequest.AccountName">
+            <summary>
+            Getter Setter for AccountName
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Model.CreateTokenRequest.Name">
+            <summary>
+            Getter Setter for Name
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Model.CreateTokenRequest.EntityType">
+            <summary>
+            Getter Setter for EntityType
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Model.CreateTokenRequest.SbNamespace">
+            <summary>
+            Getter Setter for Service bus Namespace
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Model.CreateTokenRequest.Path">
+            <summary>
+            Getter Setter for Path
+            </summary>
+        </member>
+        <member name="P:SasTokenService.Model.CreateTokenRequest.DeviceName">
+            <summary>
+            Getter Setter for DeviceName
+            </summary>
+        </member>
+        <member name="T:SasTokenService.KeyAuth.Owin.AppBuilderExtensions">
+            <summary>
+            Class to provide validation Methods For Password
+            </summary>
+        </member>
+        <member name="M:SasTokenService.KeyAuth.Owin.AppBuilderExtensions.UseKeyAuthMiddleware(Owin.IAppBuilder,SasTokenService.KeyAuth.Owin.KeyAuthOptions)">
+            <summary>
+            Installs the <see coderef="SecManAuthorizationMiddleware"/> in the OWIN pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:SasTokenService.KeyAuth.Owin.KeyAuthMiddleware">
+            <summary>
+            MiddleWare for authenticating the given key for creating sastoken
+            </summary>
+        </member>
+        <member name="F:SasTokenService.KeyAuth.Owin.KeyAuthMiddleware.OptionsKey">
+            <summary>
+            We store in owin pipeline under this key all required authorization options.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.KeyAuth.Owin.KeyAuthMiddleware.#ctor(Microsoft.Owin.OwinMiddleware,SasTokenService.KeyAuth.Owin.KeyAuthOptions)">
+            <summary>
+            Creates the middleware instance.
+            </summary>
+            <param name="next">Nex middleware in chain.</param>
+            <param name="opts"></param>
+        </member>
+        <member name="M:SasTokenService.KeyAuth.Owin.KeyAuthMiddleware.Invoke(Microsoft.Owin.IOwinContext)">
+            <summary>
+            Setups the authorization settings relevant for Security Manager.
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SasTokenService.KeyAuth.Owin.KeyAuthOptions">
+            <summary>
+            Class To Validate Headers in Requets.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.KeyAuth.Owin.KeyAuthOptions.#ctor(System.Func{System.Int64,System.String,System.Boolean})">
+            <summary>
+            Method to Validate Headers . 
+            </summary>
+            <param name="onValidateHeader"></param>
+        </member>
+        <member name="P:SasTokenService.KeyAuth.Owin.KeyAuthOptions.AuthHeaderName">
+            <summary>
+            Getter For AuthHeaderName field of type String
+            </summary>
+        </member>
+        <member name="P:SasTokenService.KeyAuth.Owin.KeyAuthOptions.ErrorOnMissingHeader">
+            <summary>
+            Getter For ErrorOnMissingHeader field of type String
+            </summary>
+        </member>
+        <member name="P:SasTokenService.KeyAuth.Owin.KeyAuthOptions.OnValidateHeader">
+            <summary>
+            Getter Setter for OnValidateHeader method
+            </summary>
+        </member>
+        <member name="P:SasTokenService.KeyAuth.Owin.KeyAuthOptions.ProtectedPath">
+            <summary>
+             /// <summary>
+            Getter For ProtectedPath field of type String
+            </summary>
+            </summary>
+        </member>
+        <member name="T:SasTokenService.DeviceKeyGenerator">
+            <summary>
+            Class To validate Users and its Key
+            </summary>
+        </member>
+        <member name="M:SasTokenService.DeviceKeyGenerator.RandomString(System.Int32,System.Boolean)">
+            <summary>
+            Generates a random string with the given length
+            </summary>
+            <param name="size">Size of the string</param>
+            <param name="lowerCase">If true, generate lowercase string</param>
+            <returns>Random string</returns>
+        </member>
+        <member name="M:SasTokenService.DeviceKeyGenerator.GetPassword">
+            You can even combine the two methods - RandomNumber and RandomString to generate a combination of random string and /// numbers. For example, the following code generates a password of length 10 with first 4 letters lowercase, next 4 
+            letters numbers, and last 2 letters as uppercase.
+        </member>
+        <member name="M:SasTokenService.DeviceKeyGenerator.GetKey">
+            <summary>
+            Method To get key for a Device
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.DeviceKeyGenerator.GetDeviceValidator(System.Int64,System.String)">
+            <summary>
+            It validates device based on its id and key.
+            </summary>
+            <param name="deviceId"></param>
+            <param name="deviceKey"></param>
+            <returns>TRUE if device is successfully validated.</returns>
+        </member>
+        <member name="T:SasTokenService.SasTokenServiceException">
+            <summary>
+             Class To Handle Exception in Service. Currently is only logs the Exception.  
+            </summary>
+        </member>
+        <member name="M:SasTokenService.SasTokenServiceException.#ctor(System.String)">
+            <summary>
+             Method To logs Exception
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="T:SasTokenService.MockRoleProvider">
+            <summary>
+            This mocks Security Manager. 
+            You can use this class to quickly implement your custom authorization mechanism.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.MockRoleProvider.GetRoles(System.Security.Claims.ClaimsIdentity,System.String)">
+            <summary>
+            Method To Get Predefined Roles.
+            </summary>
+            <param name="identity"></param>
+            <param name="secManIdentityName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SasTokenService.MockTokenProvider">
+            <summary>
+            This class provides a build-in OAuth token provider.
+            </summary>
+        </member>
+        <member name="M:SasTokenService.MockTokenProvider.GrantAuthorizationCode(Microsoft.Owin.Security.OAuth.OAuthGrantAuthorizationCodeContext)">
+            <summary>
+            Method To Grant Authorization to Context
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.MockTokenProvider.GrantClientCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantClientCredentialsContext)">
+            <summary>
+            Method To GrantClientCredentials
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.MockTokenProvider.GrantCustomExtension(Microsoft.Owin.Security.OAuth.OAuthGrantCustomExtensionContext)">
+            <summary>
+            Method To get GrantCustomExtension
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.MockTokenProvider.ValidateClientAuthentication(Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext)">
+            <summary>
+            Method To Get ValidateClientAuthentication
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SasTokenService.MockTokenProvider.GrantResourceOwnerCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext)">
+            <summary>
+            Method Validate Password .For Testing Purpose
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SasTokenService.ISasTokenProvider">
+            <summary>
+            Interface to define methods an properties of token Providers.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.ISasTokenProvider.Configuration">
+            <summary>
+            Holds the configuration for provider.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.ISasTokenProvider.Id">
+            <summary>
+            Provider identifier. We can use multiple instances of the same provider.
+            Every provider instance uses different configuration. Id specifies a mapping between
+            provider and configuration.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.ISasTokenProvider.Description">
+            <summary>
+            Provider Description
+            </summary>
+        </member>
+        <member name="M:SasTokenService.ISasTokenProvider.CreateToken(SasTokenService.Model.CreateTokenRequest,SasTokenService.SasProviderConfiguration)">
+            <summary>
+            Method To create Token.
+            </summary>
+            <param name="tokenArgs"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SasTokenService.IoTHubSasTokenProvider">
+            <summary>
+            Class to Provide Token For Iot Token
+            </summary>
+        </member>
+        <member name="P:SasTokenService.IoTHubSasTokenProvider.Configuration">
+            <summary>
+            Getter Setter for Configuration of Provider class.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.IoTHubSasTokenProvider.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:SasTokenService.IoTHubSasTokenProvider.Description">
+            <summary>
+            Method to return Description value
+            </summary>
+        </member>
+        <member name="M:SasTokenService.IoTHubSasTokenProvider.CreateToken(SasTokenService.Model.CreateTokenRequest,SasTokenService.SasProviderConfiguration)">
+            <summary>
+            This method is to create SAS token to  be retieved based on the user input.
+            </summary>
+            <param name="tokenArgs"></param>
+            <param name="configuration"></param>
+            <returns>token of Type Token</returns>
+        </member>
+        <member name="T:SasTokenService.StorageSasTokenProvider">
+            <summary>
+            Class To Obtain Storage Token
+            </summary>
+        </member>
+        <member name="F:SasTokenService.StorageSasTokenProvider.BLOB">
+            <summary>
+            Constant String Blob
+            </summary>
+        </member>
+        <member name="F:SasTokenService.StorageSasTokenProvider.TABLE">
+            <summary>
+            Constant String Table
+            </summary>
+        </member>
+        <member name="F:SasTokenService.StorageSasTokenProvider.QUEUE">
+            <summary>
+            Constant String Queue
+            </summary>
+        </member>
+        <member name="F:SasTokenService.StorageSasTokenProvider.RequestValidationError">
+            <summary>
+            Constant String For RequestValidationError
+            </summary>
+        </member>
+        <member name="F:SasTokenService.StorageSasTokenProvider.HTTPS">
+            <summary>
+            Constant String For HTTPS
+            </summary>
+        </member>
+        <member name="F:SasTokenService.StorageSasTokenProvider.Newline">
+            <summary>
+            Constant String For Newline
+            </summary>
+        </member>
+        <member name="P:SasTokenService.StorageSasTokenProvider.Configuration">
+            <summary>
+            Method To Get Id and Destription
+            </summary>
+        </member>
+        <member name="P:SasTokenService.StorageSasTokenProvider.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:SasTokenService.StorageSasTokenProvider.Description">
+            <summary>
+            Method to return Description value
+            </summary>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.CreateToken(SasTokenService.Model.CreateTokenRequest,SasTokenService.SasProviderConfiguration)">
+            <summary>
+            This method is to identify which SAS token to  be retieved based on the user input.
+            </summary>
+            <param name="tokenArgs"></param>
+            <param name="configuration"></param>
+            <returns>token of Type Token</returns>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.getArgs(SasTokenService.Model.CreateTokenRequest)">
+            <summary>
+            Creates ServiceBusTokenArgs from dynamic type.
+            </summary>
+            <param name="tokenvalue"></param>
+            <returns>tokenArgs of Type ServiceBusTokenArgs</returns>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.createArgsForBlob(SasTokenService.Model.CreateTokenRequest,SasTokenService.Entities.StorageTokenArgs)">
+            <summary>
+            Creates ServiceBusTokenArgs object  for Blob
+            </summary>
+            <param name="tokenvalue"></param>
+            <param name="tokenArgs"></param>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.createArgsForTable(SasTokenService.Model.CreateTokenRequest,SasTokenService.Entities.StorageTokenArgs)">
+            <summary>
+            Creates ServiceBusTokenArgs object  for Table
+            </summary>
+            <param name="tokenvalue"></param>
+            <param name="tokenArgs"></param>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.createArgsForQueue(SasTokenService.Model.CreateTokenRequest,SasTokenService.Entities.StorageTokenArgs)">
+            <summary>
+            Creates ServiceBusTokenArgs object  for Queue
+            </summary>
+            <param name="tokenvalue"></param>
+            <param name="tokenArgs"></param>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.getkeyFromAzureForBlob(SasTokenService.Entities.StorageTokenArgs)">
+            <summary>
+            Method to Create token for Azure blob
+            </summary>
+            
+            <param name="request"></param>
+            <returns>Raw Token of Type Token</returns>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.getBlobSasUri(Microsoft.WindowsAzure.Storage.Blob.CloudBlobContainer,System.String)">
+            <summary>
+            Method to get SAS URI for Blob
+            </summary>
+            <param name="container"></param>
+            <param name="filename"></param>
+            <returns> Blob uri and Shared Access Signature</returns>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.getSASForTableStorage(SasTokenService.Entities.StorageTokenArgs)">
+            <summary>
+            Method to get SAS token for Azure Table
+            </summary>
+            <param name="args"></param>
+            <returns>RawToken of Type Token</returns>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.getSASForQueueStorage(SasTokenService.Entities.StorageTokenArgs)">
+            <summary>
+            Method to get SAS token for Azure Queue
+            </summary>
+            <param name="args"></param>
+            <returns>RawToken of Type Token</returns>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.createAzureQueuePolicy">
+            <summary>
+            Method to set SharedAccessQueuePolicy object with proper Access
+            </summary>
+            <returns>SharedAccessQueuePolicy</returns>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.createAzureTablePolicy">
+            <summary>
+            Method to set SharedAccessTablePolicy object with proper Access
+            </summary>
+            <returns>SharedAccessTablePolicy</returns>
+        </member>
+        <member name="M:SasTokenService.StorageSasTokenProvider.createAzureBlobPolicy">
+            <summary>
+            Method to set SharedAccessBlobPolicy object with proper Access
+            </summary>
+            <returns>SharedAccessBlobPolicy</returns>
+        </member>
+        <member name="T:SasTokenService.ServiceBusSasTokenProvider">
+            <summary>
+            Class to Provide Token For Service Bus Service. This Class Provides Service Bus for EVENTHUB,TOPIC and Queue
+            </summary>
+        </member>
+        <member name="F:SasTokenService.ServiceBusSasTokenProvider.EVENTHUB">
+            <summary>
+            Constant String for Event Hub
+            </summary>
+        </member>
+        <member name="F:SasTokenService.ServiceBusSasTokenProvider.TOPIC">
+            <summary>
+            Constant String for Topic
+            </summary>
+        </member>
+        <member name="F:SasTokenService.ServiceBusSasTokenProvider.QUEUE">
+            <summary>
+            Constant String for Queue
+            </summary>
+        </member>
+        <member name="F:SasTokenService.ServiceBusSasTokenProvider.RequestValidationError">
+            <summary>
+            Constant String for Request Validation Error
+            </summary>
+        </member>
+        <member name="F:SasTokenService.ServiceBusSasTokenProvider.HTTPS">
+            <summary>
+            Constant String for Https
+            </summary>
+        </member>
+        <member name="F:SasTokenService.ServiceBusSasTokenProvider.Newline">
+            <summary>
+            Constant String for New Line
+            </summary>
+        </member>
+        <member name="P:SasTokenService.ServiceBusSasTokenProvider.Configuration">
+            <summary>
+             Method to Get Configuration . Id must be different for each class.
+            </summary>
+        </member>
+        <member name="P:SasTokenService.ServiceBusSasTokenProvider.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:SasTokenService.ServiceBusSasTokenProvider.Description">
+            <summary>
+            Method to return Description value
+            </summary>
+        </member>
+        <member name="M:SasTokenService.ServiceBusSasTokenProvider.CreateToken(SasTokenService.Model.CreateTokenRequest,SasTokenService.SasProviderConfiguration)">
+            <summary>
+            This method is to identify which SAS token to  be retieved based on the user input.
+            </summary>
+            <param name="tokenArgs"></param>
+            <param name="configuration"></param>
+            <returns>token of Type Token</returns>
+        </member>
+        <member name="M:SasTokenService.ServiceBusSasTokenProvider.getArgs(SasTokenService.Model.CreateTokenRequest,SasTokenService.SasProviderConfiguration)">
+            <summary>
+            Creates ServiceBusTokenArgs from dynamic type.
+            </summary>
+            <param name="request"></param>
+            <param name="configuration"></param>
+            <returns>tokenArgs of Type ServiceBusTokenArgs</returns>
+        </member>
+        <member name="M:SasTokenService.ServiceBusSasTokenProvider.createArgsForTopic(SasTokenService.Model.CreateTokenRequest,SasTokenService.Entities.ServiceBusTokenArgs)">
+            <summary>
+            Creates ServiceBusTokenArgs object for Topic
+            </summary>
+            <param name="request"></param>
+            <param name="tokenArgs"></param>
+        </member>
+        <member name="M:SasTokenService.ServiceBusSasTokenProvider.createArgsForEventHub(SasTokenService.Model.CreateTokenRequest,SasTokenService.Entities.ServiceBusTokenArgs)">
+            <summary>
+            Creates ServiceBusTokenArgs object for  EventHub
+            </summary>
+            <param name="request"></param>
+            <param name="tokenArgs"></param>
+        </member>
+        <member name="M:SasTokenService.ServiceBusSasTokenProvider.createArgsForQueue(SasTokenService.Model.CreateTokenRequest,SasTokenService.Entities.ServiceBusTokenArgs)">
+            <summary>
+            Creates ServiceBusTokenArgs object for Queue
+            </summary>
+            <param name="request"></param>
+            <param name="tokenArgs"></param>
+        </member>
+        <member name="M:SasTokenService.ServiceBusSasTokenProvider.createTokenforServiceBusExplorerEventHub(SasTokenService.Entities.ServiceBusTokenArgs)">
+            <summary>
+            Method to create token for ServiceBusExplorerEventHub
+            </summary>
+            <param name="tokenArgs"></param>
+            <returns>rawtokwn of Type Token</returns>
+        </member>
+        <member name="M:SasTokenService.ServiceBusSasTokenProvider.createTokenforServiceBusExplorerTopic(SasTokenService.Entities.ServiceBusTokenArgs)">
+            <summary>
+            Method to create Token for ServiceBus Topic
+            </summary>
+            <param name="tokenArgs"></param>
+            <returns>Rawtoken of Type Token</returns>
+        </member>
+        <member name="M:SasTokenService.ServiceBusSasTokenProvider.createTokenforServiceBusExplorerQueue(SasTokenService.Entities.ServiceBusTokenArgs)">
+            <summary>
+            Method to create Token for ServiceBus Queue
+            </summary>
+            <param name="tokenArgs"></param>
+            <returns>Rawtoken of Type Token</returns>
+        </member>
+        <member name="M:SasTokenService.ServiceBusSasTokenProvider.getKeyFromSB(SasTokenService.Entities.ServiceBusTokenArgs)">
+            <summary>
+            method to Get Primary key fot Various EntityType, eg: Queue, Service bus , Event hub
+            </summary>
+            <param name="tokenArgs"></param>
+            <returns>primarykey of Type String</returns>
+        </member>
+        <member name="M:SasTokenService.ServiceBusSasTokenProvider.createToken(System.String,System.String,System.String,System.TimeSpan)">
+            <summary>
+            Returns the token 
+            </summary>
+            <param name="resourceUri"></param>
+            <param name="keyName"></param>
+            <param name="key"></param>
+            <param name="expiresIn"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

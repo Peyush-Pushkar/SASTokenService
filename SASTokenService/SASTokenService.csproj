@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C177F6EE-E7DB-4FA3-96A2-72CB04A98F68}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SasTokenService</RootNamespace>
+    <AssemblyName>SasTokenService</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44326</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <DocumentationFile>bin\SasTokenService.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Daenet.SecurityManager.Owin">
+      <HintPath>Assemblies\DaenetSecurityManagerOwin.1.0.10\Daenet.SecurityManager.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Http.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Http.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Http.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Http.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Http.Extensions.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Http.Features">
+      <HintPath>..\packages\Microsoft.AspNet.Http.Features.1.0.0-rc1-final\lib\net451\Microsoft.AspNet.Http.Features.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.OptionsModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.OptionsModel.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.OptionsModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.WebEncoders.Core.1.0.0-rc1-final\lib\net451\Microsoft.Extensions.WebEncoders.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.1.0.0-rc1-final\lib\net451\Microsoft.Net.Http.Headers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.ActiveDirectory, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.ActiveDirectory.3.0.1\lib\net45\Microsoft.Owin.Security.ActiveDirectory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Jwt, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Jwt.3.0.1\lib\net45\Microsoft.Owin.Security.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ServiceBus, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.ServiceBus.3.2.4\lib\net45-full\Microsoft.ServiceBus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.1\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.7.0.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20622.1351, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.2.206221351\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.0.0\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App\adal-angular.js" />
+    <Content Include="App\adal.js" />
+    <Content Include="App\app.js" />
+    <Content Include="App\Components\AddDevice\deviceAddCtrl.js" />
+    <Content Include="App\Components\Images\ajax-loader.gif" />
+    <Content Include="App\Components\Images\loader.gif" />
+    <Content Include="App\Components\ListDevices\deviceListCtrl.js" />
+    <Content Include="App\Components\EditDevice\deviceEditCtrl.js" />
+    <Content Include="App\Components\Home\homeCtrl.js" />
+    <Content Include="App\sasDeviceCtrl.js" />
+    <Content Include="App\Components\SasTokenCreator\sasTokenCtrl.js" />
+    <Content Include="App\Components\Index\indexCtrl.js" />
+    <Content Include="js\ui-bootstrap-tpls-2.3.2.min.js" />
+    <Content Include="App\Components\UserData\userDataCtrl.js" />
+    <Content Include="App\Components\AddDevice\DeviceAdd.html" />
+    <Content Include="App\Components\EditDevice\DeviceEdit.html" />
+    <Content Include="App\Components\Home\Home.html" />
+    <Content Include="App\Components\ListDevices\DeviceList.html" />
+    <Content Include="App\Components\SasTokenCreator\SasToken.html" />
+    <Content Include="App\Components\UserData\UserData.html" />
+    <Content Include="css\chart.css" />
+    <Content Include="css\clndr.css" />
+    <Content Include="css\sasServiceu.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery.bxslider.css" />
+    <Content Include="css\jquery.sidr.dark.css" />
+    <Content Include="css\jquery.sidr.light.css" />
+    <Content Include="css\responsiveslides.css" />
+    <Content Include="css\SASService.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\tabulous.css" />
+    <Content Include="Documentation\SASToken Service Usecases.png" />
+    <Content Include="Global.asax" />
+    <Content Include="images\ac-lock.png" />
+    <Content Include="images\ac-msg.png" />
+    <Content Include="images\ac-sprit.png" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\arrow-left.png" />
+    <Content Include="images\arrow-right.png" />
+    <Content Include="images\arrowh.png" />
+    <Content Include="images\artical-pic.png" />
+    <Content Include="images\banner1.jpg" />
+    <Content Include="images\banner2.jpg" />
+    <Content Include="images\bg1.png" />
+    <Content Include="images\bg2.png" />
+    <Content Include="images\bg4.png" />
+    <Content Include="images\blog-related-sprit.png" />
+    <Content Include="images\brefcase.png" />
+    <Content Include="images\buttons.png" />
+    <Content Include="images\c1.png" />
+    <Content Include="images\cal-icon1.png" />
+    <Content Include="images\cal-icon2.png" />
+    <Content Include="images\cal-pic.png" />
+    <Content Include="images\cal.png" />
+    <Content Include="images\calender.png" />
+    <Content Include="images\calh.png" />
+    <Content Include="images\capt1.png" />
+    <Content Include="images\cart.png" />
+    <Content Include="images\carth.png" />
+    <Content Include="images\cfacebook.png" />
+    <Content Include="images\cgoogle.png" />
+    <Content Include="images\check-sprit.png" />
+    <Content Include="images\check-sprit1.png" />
+    <Content Include="images\cin.png" />
+    <Content Include="images\cloud-icon1.png" />
+    <Content Include="images\cloud.png" />
+    <Content Include="images\cloudh.png" />
+    <Content Include="images\comment-people-sprit.png" />
+    <Content Include="images\comment-people1.png" />
+    <Content Include="images\comment-people2.png" />
+    <Content Include="images\comment-people3.png" />
+    <Content Include="images\comment-people4.png" />
+    <Content Include="images\comment-people5.png" />
+    <Content Include="images\comment-people6.png" />
+    <Content Include="images\controls.png" />
+    <Content Include="images\ctwitter.png" />
+    <Content Include="images\dark-arrow.png" />
+    <Content Include="images\dark-tool.png" />
+    <Content Include="images\delete.gif" />
+    <Content Include="images\doller-small.png" />
+    <Content Include="images\filedown.png" />
+    <Content Include="images\filter-bg.png" />
+    <Content Include="images\games.png" />
+    <Content Include="images\gamesh.png" />
+    <Content Include="images\gar.png" />
+    <Content Include="images\green-r.png" />
+    <Content Include="images\green-tool.png" />
+    <Content Include="images\icon3.png" />
+    <Content Include="images\icons-sprite.png" />
+    <Content Include="images\imgs-sprit.png" />
+    <Content Include="images\increment-icon.png" />
+    <Content Include="images\increment-icon1.png" />
+    <Content Include="images\increment-icon1h.png" />
+    <Content Include="images\increment-iconh.png" />
+    <Content Include="images\layout.png" />
+    <Content Include="images\left-pagnate-icon.png" />
+    <Content Include="images\lface.png" />
+    <Content Include="images\lgoogle.png" />
+    <Content Include="images\light-arrow.png" />
+    <Content Include="images\lin.png" />
+    <Content Include="images\loginArrow.png" />
+    <Content Include="images\logout.png" />
+    <Content Include="images\lpin.png" />
+    <Content Include="images\ltwitt.png" />
+    <Content Include="images\message.png" />
+    <Content Include="images\modal-bg.png" />
+    <Content Include="images\movies.png" />
+    <Content Include="images\moviesh.png" />
+    <Content Include="images\ms.png" />
+    <Content Include="images\msg-notifi-wite.png" />
+    <Content Include="images\msg-notifi.png" />
+    <Content Include="images\msg-sprit.png" />
+    <Content Include="images\nav-active.png" />
+    <Content Include="images\nav-arrow.png" />
+    <Content Include="images\nav-arrow1.png" />
+    <Content Include="images\nav-bg1.png" />
+    <Content Include="images\nav-icon.png" />
+    <Content Include="images\nav-icon1.png" />
+    <Content Include="images\news-artical-pic.png" />
+    <Content Include="images\news-date-icon.png" />
+    <Content Include="images\news-pic.png" />
+    <Content Include="images\news-pic1.png" />
+    <Content Include="images\news-pic3.png" />
+    <Content Include="images\news-pic4.png" />
+    <Content Include="images\news-share.png" />
+    <Content Include="images\news-start.png" />
+    <Content Include="images\news-trash.png" />
+    <Content Include="images\pay-check.png" />
+    <Content Include="images\payment-sprit.png" />
+    <Content Include="images\paypal.png" />
+    <Content Include="images\pencile.png" />
+    <Content Include="images\people-quit-end.png" />
+    <Content Include="images\people-quit-start.png" />
+    <Content Include="images\photos.png" />
+    <Content Include="images\photosh.png" />
+    <Content Include="images\pie-chart.png" />
+    <Content Include="images\pin-pic.png" />
+    <Content Include="images\profile-bg.png" />
+    <Content Include="images\profile-pic.png" />
+    <Content Include="images\progress-icon.png" />
+    <Content Include="images\qurter.png" />
+    <Content Include="images\readmore.png" />
+    <Content Include="images\readmoreh.png" />
+    <Content Include="images\red-a.png" />
+    <Content Include="images\red-tool.png" />
+    <Content Include="images\replay-right.png" />
+    <Content Include="images\replay-sprit.png" />
+    <Content Include="images\replay.png" />
+    <Content Include="images\right-arrow-right.png" />
+    <Content Include="images\right-dark-tool.png" />
+    <Content Include="images\right-msg.png" />
+    <Content Include="images\right-msgh.png" />
+    <Content Include="images\right-pagenate-icon.png" />
+    <Content Include="images\search-icon1.png" />
+    <Content Include="images\search-icon1h.png" />
+    <Content Include="images\shape1.png" />
+    <Content Include="images\share-big.png" />
+    <Content Include="images\share-bigh.png" />
+    <Content Include="images\shipping-icon.png" />
+    <Content Include="images\shoping-box.png" />
+    <Content Include="images\small-social-icons.png" />
+    <Content Include="images\social-sptit.png" />
+    <Content Include="images\spech.png" />
+    <Content Include="images\star-left.gif" />
+    <Content Include="images\star-right.gif" />
+    <Content Include="images\star.gif" />
+    <Content Include="images\start.png" />
+    <Content Include="images\sun-cion1.png" />
+    <Content Include="images\sun-cion2.png" />
+    <Content Include="images\sun-cion3.png" />
+    <Content Include="images\sun-cion4.png" />
+    <Content Include="images\sun-cion5.png" />
+    <Content Include="images\sun-cion6.png" />
+    <Content Include="images\supr.png" />
+    <Content Include="images\tab-video.png" />
+    <Content Include="images\tabs-sprit.png" />
+    <Content Include="images\tab_pic1.jpg" />
+    <Content Include="images\tab_pic2.jpg" />
+    <Content Include="images\tag-close.png" />
+    <Content Include="images\tags.png" />
+    <Content Include="images\top-green-tool.png" />
+    <Content Include="images\visa.png" />
+    <Content Include="index.html" />
+    <None Include="Readme.md" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Controllers\DeviceRegistryController.cs" />
+    <Compile Include="DAL\DeviceRegistryDal.cs" />
+    <Compile Include="DAL\DeviceRegistryDalCache.cs" />
+    <Compile Include="DAL\IDeviceRegistryDal.cs" />
+    <Compile Include="Controllers\SasTokenController.cs" />
+    <Compile Include="DAL\DalExtension.cs" />
+    <Compile Include="DAL\PersistenceProvider.cs" />
+    <Compile Include="Entities\Device.cs" />
+    <Compile Include="Entities\DeviceQuery.cs" />
+    <Compile Include="Entities\PersistenceContext.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CreateTokenRequest.cs" />
+    <Compile Include="Owin\KeyAuthMiddleware.cs" />
+    <Compile Include="Owin\KeyAuthOptions.cs" />
+    <Compile Include="DeviceKeyGenerator.cs" />
+    <Compile Include="Entities\InstalledProvider.cs" />
+    <Compile Include="Entities\Token.cs" />
+    <Compile Include="Entities\TokenArgs.cs" />
+    <Compile Include="SasTokenServiceException.cs" />
+    <Compile Include="SecMan\MockRoleProvider.cs" />
+    <Compile Include="SecMan\MockTokenProvider.cs" />
+    <Compile Include="SecMan\Startup.SecManAuth.cs" />
+    <Compile Include="StsAuthorizationFilter.cs" />
+    <Compile Include="TokenGeneration\ISasTokenProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenGeneration\IoTHubSasTokenProvider.cs" />
+    <Compile Include="TokenGeneration\StorageSasTokenProvider.cs" />
+    <Compile Include="TokenGeneration\ServiceBusSasTokenProvider.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\PublishProfiles\TstSasTs - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\TstSasTs - Web Deploy.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App\shared\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

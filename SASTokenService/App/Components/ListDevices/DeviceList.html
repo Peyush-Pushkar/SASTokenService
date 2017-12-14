@@ -1,0 +1,46 @@
+﻿<!--view to display the Devices-->
+<div ng-app="sasTokenApp">
+    <p class="error">{{error}}</p>
+    <form>
+        <input class="form-control" type="text" placeholder="Search..." ng-model="searchedDevice">
+        <button type="button" class="btn btn-info" ng-click="searchDeviceDetails(searchedDevice)">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </form>
+
+   <div align="center">
+       <a href="#/AddDevice"> <input class="btn btn-default" type="button" value="Add Device" /></a>
+   </div>
+    <br />
+    <div ng-show="loading" class="loading"><img src="../Images/ajax-loader.gif"width="20" height="20" />LOADING...</div>
+    <div>
+        <h1 align="center">{{deviceList.length}} Device(s) found </h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>DeviceName</th>
+                        <th>Owner</th>
+                        <th>GeoPosition</th>
+                        <th>KeyValidity</th>
+                        <th>Owner</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="Device in deviceList.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                        <td>{{Device.Name}}</td>
+                        <td>{{Device.Owner}}</td>
+                        <td>{{Device.GeoPosition}}</td>
+                        <td>{{Device.KeyValidity | date: 'medium'}}</td>
+                        <td>{{Device.Owner}}</td>
+                        <td>
+                            <a href="#/EditDevice/DeviceId/{{Device.DeviceID}}/">Details</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul uib-pagination total-items="deviceList.length" ng-model="currentPage"></ul>
+        </div>
+    </div>
+</div>

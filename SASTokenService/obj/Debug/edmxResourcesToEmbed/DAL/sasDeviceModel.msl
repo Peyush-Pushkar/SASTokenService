@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sasDeviceModelStoreContainer" CdmEntityContainer="sasDeviceEntities">
+    <EntitySetMapping Name="SasDeviceDetails">
+      <EntityTypeMapping TypeName="sasDeviceModel.SasDeviceDetail">
+        <MappingFragment StoreEntitySet="SasDeviceDetail">
+          <ScalarProperty Name="KeyValidity" ColumnName="KeyValidity" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="DeviceKey" ColumnName="DeviceKey" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_SasDevice_Delete" FunctionName="sasDeviceModel.Store.USP_SasDevice_Delete" />
+    <FunctionImportMapping FunctionImportName="USP_SasDevice_Insert" FunctionName="sasDeviceModel.Store.USP_SasDevice_Insert" />
+    <FunctionImportMapping FunctionImportName="USP_SasDevice_Select" FunctionName="sasDeviceModel.Store.USP_SasDevice_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="sasDeviceModel.USP_SasDevice_Select_Result">
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="DeviceKey" ColumnName="DeviceKey" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SasDevice_Update" FunctionName="sasDeviceModel.Store.USP_SasDevice_Update" />
+  </EntityContainerMapping>
+</Mapping>

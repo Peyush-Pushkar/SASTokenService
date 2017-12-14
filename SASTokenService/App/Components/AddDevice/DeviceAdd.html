@@ -1,0 +1,53 @@
+﻿<div ng-app="sasTokenApp">
+    
+    <div>
+
+        <form name="deviceform" novalidate ng-hide="isInsertSucess">
+            <h3>Add a Device</h3>
+            <p>
+                Device Names :<br />
+                <input class="form-control" type="text" name="devicename" ng-model="device.name" placeholder="Device Name..." required>
+                <!--<span style="color:red" ng-show="deviceName=='0' && IsFormSubmitted">Device Name required!</span>-->
+            </p>
+
+            <p>
+                Owner :<br />
+                <input class="form-control" type="text" name="Owner" ng-model="device.owner" placeholder="Owner" required>
+                <!--<span style="color:red" ng-show="deviceform.Owner.$dirty && sasDeviceCtrl.Owner.$invalid">
+                    <span ng-show="deviceform.Owner.$error.required">Owner  is required.</span>
+                </span>-->
+            </p>
+
+            <p>
+                IP :<br />
+                <input class="form-control" type="text" name="ip" ng-model="device.ip" placeholder="Device IP.." required>
+                <!--<span style="color:red" ng-show="deviceform.ip.$dirty && sasDeviceCtrl.ip.$invalid">
+                    <span ng-show="deviceform.ip.$error.required">IP is required.</span>
+                </span>-->
+            </p>
+
+            <p>
+                Location :<br />
+                <input class="form-control" type="text" name="location" ng-model="device.geoPosition"  placeholder="Device Location..." required>
+                <!--<span style="color:red" ng-show="deviceform.location.$dirty && sasDeviceCtrl.location.$invalid">
+                    <span ng-show="deviceform.location.$error.required"> Locations is required.</span>
+                </span>-->
+            </p>
+
+            <p>
+                <input class="btn btn-primary" type="submit" value="Add" ng-disabled="!device.deviceName && !device.owner&& !ip && !device.location" ng-click="Adddetail()">
+            </p>
+            <div align="center">
+                <a href="#/Devices"> <input class="btn btn-danger" type="button" value="Cancel" /></a>
+            </div>
+
+        </form>
+    </div>
+
+    <div ng-show="isInsertSucess">
+        <h3>Device is inserted Sucessfully</h3>
+        <div align="center">
+            <a href="#/Devices"> <input class="btn btn-default" type="button" value="Back" /></a>
+        </div>
+    </div>
+</div>
